@@ -71,10 +71,14 @@ namespace BookStoreX.Controllers
         [HttpPost]
         public ActionResult Create(Book book)
         {
-            db.Add(book);
-            db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                db.Add(book);
+                db.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return View(book);
         }
 
 
