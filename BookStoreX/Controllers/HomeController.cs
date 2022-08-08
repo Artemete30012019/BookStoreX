@@ -124,6 +124,25 @@ namespace BookStoreX.Controllers
 
             return View();
         }
+        [HttpGet]
+        public IActionResult Registration()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Registration(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Add(user);
+                db.SaveChanges();
 
+                return RedirectToAction("Index");
+            }
+            return View(user);
+        }
+        //Logout
+        //Login
+        //ViewUser
     }
 }

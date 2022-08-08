@@ -7,8 +7,12 @@ namespace BookStoreX.Models
 
         public DbSet<Book> Books { get; set;}
         public DbSet<Purchase> Purchases { get; set; }
-
-        public BookContext() => Database.EnsureCreated();
+        public DbSet<User> Users { get; set; }
+        public BookContext()
+        {
+           
+            Database.EnsureCreated();
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -21,6 +25,8 @@ namespace BookStoreX.Models
                 new Book { Id = 2, Name = "Отцы и дети", Author = "И. Тургенев", Price = 130 },
                 new Book { Id = 3, Name = "Чайка", Author = "А. Чехов", Price = 59 },
                 new Book { Id = 4, Name = "Мы", Author = "Е. Замятин", Price = 88 });
+            modelBuilder.Entity<User>().HasData(
+               new User { Id = 1, Name = "admin", Password = "admin", Email = "-" });
 
         }
     }

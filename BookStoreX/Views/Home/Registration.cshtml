@@ -1,0 +1,31 @@
+﻿@model BookStoreX.Models.User
+@{
+    ViewBag.Title = "регистрация новго пользователя";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Новая книга</h2>
+
+@using (Html.BeginForm("Registration","Home",FormMethod.Post))
+{
+    <fieldset>
+        <p>
+            @Html.LabelFor(m => m.Name, "Ваше имя")
+            <br/>
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Email, "Эл.почта")
+            <br/>
+            @Html.EditorFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </p>
+         <p>
+            @Html.LabelFor(m => m.Password, "Пароль")
+            <br/>
+            @Html.EditorFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </p>
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}
