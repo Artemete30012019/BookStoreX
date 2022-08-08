@@ -1,0 +1,28 @@
+﻿@{
+	ViewBag.Title = "Книги от Любви";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+	<div>
+			<h3>Список книг</h3>
+			<table border = "1" cellpadding= "25">
+				<tr align="center">
+					<td width="100" height="100">Название книги</td>
+					<td width="100" height="100">Автор</td>
+					<td width="100" height="100">Цена</td>
+					<td width="100" height="100"></td>
+				</tr>
+				@foreach (var book in ViewBag.Books)
+				{
+				<tr align="center">
+					<td width="100" height="50"><p><a href="/home/ViewBook/@book.Id">@book.Name</a></p></td>
+					<td><p>@book.Author</p></td>
+					<td><p>@book.Price</p></td>
+					<td><p><a href = "/home/Buy/@book.Id">Купить в один клик</a></p></td>
+					<td><p><a href = "/home/EditBook/@book.Id">Редактировать книгу</a></p></td>
+					<td><p><a href = "/home/Delete/@book.Id">Удалить книгу</a></p></td>
+				</tr>
+				}
+		</table>
+	</div>
+

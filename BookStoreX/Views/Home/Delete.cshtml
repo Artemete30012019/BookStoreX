@@ -1,0 +1,28 @@
+﻿@model BookStoreX.Models.Book
+@{
+    ViewBag.Title = "Удалить книгу";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Удалить книгу</h2>
+<dl>
+    <dt>Название</dt>
+    <dd>
+        @Html.DisplayFor(m => m.Name)
+    </dd>
+    <dt>Автор</dt>
+    <dd>
+        @Html.DisplayFor(m => m.Author)
+    </dd>
+    <dt>Цена</dt>
+    <dd>
+        @Html.DisplayFor(m => m.Price)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить"/>
+}
+   
+       
+   
